@@ -27,6 +27,54 @@ ul {font-size: 14px;
    font-style: normal
 }
 
+
+
+
+.search-container {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#searchInput {
+    padding: 12px 20px;
+    width: 80%;
+    max-width: 600px;
+    font-size: 16px;
+    border: 2px solid #00796b;
+    border-radius: 38px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s;
+}
+
+#searchInput:focus {
+    border-color: #00bfa5; 
+    outline: none;
+}
+
+/* --- Layout dos Tópicos (Grid) --- */
+.topics-grid {
+    display: grid;
+    /* 5 colunas, como na sua imagem */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+    gap: 15px; /* Espaçamento entre os itens */
+    max-width: 1200px;
+    margin: 0 auto; /* Centraliza o grid */
+}
+
+
+.topic-item:hover {
+    transform: translateY(-3px); /* Efeito sutil ao passar o mouse */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Estilo para itens escondidos pelo JavaScript */
+.topic-item.hidden {
+    display: none;
+}
+
+
+
+
 .grade-container {
     display: grid; 
     grid-template-columns: repeat(5, 1fr); 
