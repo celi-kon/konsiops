@@ -29,7 +29,6 @@ ul {font-size: 14px;
 
 
 
-
 .search-container {
     text-align: center;
     margin-bottom: 30px;
@@ -51,28 +50,36 @@ ul {font-size: 14px;
     outline: none;
 }
 
-/* --- Layout dos Tópicos (Grid) --- */
-.topics-grid {
+
+.grade-container { /* como o grid fica após pesquisa, 5 colunas */
     display: grid;
-    /* 5 colunas, como na sua imagem */
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
-    gap: 15px; /* Espaçamento entre os itens */
+    gap: 15px; 
     max-width: 1200px;
-    margin: 0 auto; /* Centraliza o grid */
+    margin: 0 auto;
 }
 
 
-.topic-item:hover {
-    transform: translateY(-3px); /* Efeito sutil ao passar o mouse */
+
+.info-box:hover {
+    transform: translateY(-3px);
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
 }
 
-/* Estilo para itens escondidos pelo JavaScript */
-.topic-item.hidden {
+
+.info-box.hidden {
     display: none;
 }
 
+.info-box1:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
 
+
+.info-box1.hidden {
+    display: none;
+}
 
 
 .grade-container {
