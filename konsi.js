@@ -1,39 +1,162 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const titulosClicaveis = document.querySelectorAll('.info-box h2, .info-box1 h2');
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="stylesheet" href="konsi.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KonsiOps</title>
+</head>
 
-    titulosClicaveis.forEach(titulo => {
-        titulo.addEventListener('click', function() {
-            const infoBox = this.closest('.info-box') || this.closest('.info-box1');
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Poppins:wght@400;700&display=swap');
+</style>
 
-            if (infoBox) {
-                infoBox.classList.toggle('active');
-            }
-        });
-    });
-});
+<body>
 
-function filterTopics() {
-    // 1. Pega o valor digitado na barra de pesquisa e transforma em letras minúsculas.
-    const input = document.getElementById('searchInput');
-    const filter = input.value.toLowerCase();
+    <h1>Procedimentos e Fluxos Operacionais</h1>
+    <br>
 
-    // 2. Pega todos os elementos dos tópicos.
-    const topics = document.getElementsByClassName('info-box');
+    <div class="search-container">
+        <input type="text" id="searchInput" onkeyup="filterTopics()" placeholder="Pesquisar...">
+    </div>
 
-    // 3. Itera sobre cada tópico para verificar se deve ser exibido.
-    for (let i = 0; i < topics.length; i++) {
-        const topic = topics[i];
+
+
+    <div class="grade-container" id="gradeContainer">
+
+        <div class="info-box1">
+            <h2>Aguarda Aceite Servidor</h2>
+            <p>Necessário que o cliente realize o aceite da reserva diretamente no portal.</p>
+        </div>
+
+        <div class="info-box1">
+            <h2>Aguarda Token</h2>
+            <p>Necessário informar o token (chave digital) <strong>válido</strong> para seguir com a averbação da proposta.</p>
+        </div>
+
+        <div class="info-box">
+            <h2>Aguardando Vídeo Chamada</h2>
+            <p>Necessário realizar uma vídeochamada para validação de informações exigidas pelo banco.</p>
+        </div>
+
+        <div class="info-box">
+            <h2>Alteração de Dados Bancários</h2>
+            <p>Necessária a correção dos dados bancários para a liberação do pagamento, geralmente solicitado pelo cliente.</p>
+        </div>
+
+        <div class="info-box">
+            <h2>Alteração de Valores da Proposta</h2>
+            <p>Necessário recálculo na operação gerando uma mudança nos valores inicialmente acordados.</p>
+        </div>
+
+        <div class="info-box1">
+            <h2>Análise Antifraude</h2>
+            <p>Obrigatório solicitar a análise em propostas <strong>INSS</strong> e <strong>SIAPE</strong> acima de <strong>5mil</strong> para verificar a veracidade dos documentos e biometria facial do cliente.</p>
+        </div>
+
+        <div class="info-box">
+            <h2>Bloqueado para Empréstimo</h2>
+            <p>Necessário que o cliente realize o desbloqueio do benefício diretamente no portal <strong>Meu INSS</strong>.
+            
+            <ul><li> IE – Benefício bloqueado para empréstimo pelo beneficiário ou INSS: <ins>(desbloqueio imediato)</ins></li></ul>
+            <ul><li> IF – Benefício bloqueado na concessão: <ins>(desbloqueio em 90 dias após aaprovação do benefício)</ins></li></ul>
+            <ul><li> IT – Benefício bloqueado por TBM: <ins>(desbloqueio em 60 dias após a mudança de conta)</ins></li></ul></p>
+        </div>
+
+        <div class="info-box1">
+            <h2>Cancelamento de Proposta</h2>
+            <p>Necessário realizar o cancelamento da proposta no portal do banco, seja por solicitação do cliente ou necessidade de acompanhamento.</p>
+        </div>
+
+        <div class="info-box1">
+            <h2>Contracheque Pendente</h2>
+            <p>Necessário o envio do contracheque, de preferência em PDF, devido solicitação do banco.</p>
+        </div>
+
+        <div class="info-box1">
+            <h2>Contrato em Atraso</h2>
+            <p>Necessária a regularização ou renegociação da dívida referente a um contrato anterior com pendência de pagamento. </p>
+        </div>
         
-        // Pega o texto do tópico (também em minúsculas)
-        const topicText = topic.textContent || topic.innerText; 
+        <div class="info-box1">
+            <h2>Contrato Não Encontrado</h2>
+            <p>faltandoooooooo</p>
+        </div>
+
+        <div class="info-box">
+            <h2>Documento de Identificação Pendente</h2>
+            <p>Necessário o reenvio do documento de identificação legível e sem rasuras, podendo ser em PNG ou PDF.</p>
+        </div>
+
+        <div class="info-box1">
+            <h2>Extrato Bancário</h2>
+            <p>Necessário enviar o extrato bancário após solicitação do banco, uma vez que a conta cadastrada na proposta não se refere a conta do contracheque do cliente ou em casos de portabilidade de salário.</p>
+        </div>
+
+        <div class="info-box1">
+            <h2>Finalização de Proposta</h2>
+            <p>Necessário finalizar o acompanhamento no Konsigleads após atualização de <strong>pagamento confirmado</strong> no sistema do banco, observando atentamente cada detalhe e garantindo que os valores estejam corretos.</p>
+        </div>
+
+        <div class="info-box">
+            <h2>Liberação de Consulta Servidor</h2>
+            <p>Necessário a liberação da consulta de margem, dados funcionais, histórico de oscilação e média da margem no portal de consignados para validações internas do banco.</p>
+        </div>
+
+        <div class="info-box1">
+            <h2>Margem Insuficiente</h2>
+            <p>Durante a averbação de uma proposta, o sistema do banco detecta que o solicitante não possui <strong>margem consignável disponível</strong> suficiente para atender à operação de crédito.</p>
+        </div>
+
+        <div class="info-box">
+            <h2>Nova Assinatura Necessária</h2>
+            <p>Necessário que o cliente realize uma nova assinatura, normalmente em casos que o banco solicita ajustes na proposta.</p>
+        </div>
+
+        <div class="info-box1">
+            <h2>Pagamento Devolvido</h2>
+            <p>Necessária a reapresentação do pagamento da proposta com novos dados bancários informados pelo cliente, após o banco sinalizar a devolução.</p>
+        </div>
+
+        <div class="info-box1">
+            <h2>Pendente Formalização</h2>
+            <p>Obrigatório que o cliente realize a <strong>assinatura</strong> do contrato para dar seguimento com a operação.</p>
+        </div>
+
+        <div class="info-box1">
+            <h2>Reprova no Cálculo Manual</h2>
+            <p>Durante a averbação de uma proposta, o sistema do banco realiza um cálculo manual, desconsiderando determinadas verbas do contracheque do cliente ou aplicando parâmetros internos para validação da margem.</p>
+        </div>
+
+        <div class="info-box1">
+            <h2>Retenção Fake</h2>
+            <p>faltandoooooooo</p>
+        </div>
+
+        <div class="info-box1">
+            <h2>Retenção Real</h2>
+            <p>faltandoooooooo</p>
+        </div>
+
+        <div class="info-box1">
+            <h2>Senha do Portal</h2>
+            <p>Necessária a senha do portal do cliente para acessar dados que ajudam na averbação e consulta de dados funcionais.</p>
+        </div>
+
+        <div class="info-box">
+            <h2>Taxa de Contrato Fora do R.O</h2>
+            <p>faltandoooooooo</p>
+        </div>
+
+        <div class="info-box">
+            <h2>Tipo de Vínculo Não Atendido</h2>
+            <p>Durante a averbação de uma proposta, o sistema do banco identifica que o vínculo do cliente <strong>não faz parte do público atendido</strong>.</p>
+        </div>
+        <br>
+
+        </div>
         
-        // Verifica se o texto do tópico inclui o texto da pesquisa
-        if (topicText.toLowerCase().indexOf(filter) > -1) {
-            // Se encontrar, garante que o tópico esteja visível
-            topic.style.display = ""; // Volta ao display padrão do CSS (grid item)
-        } else {
-            // Se NÃO encontrar, esconde o tópico
-            topic.style.display = "none";
-        }
-    }
-}
+        <script src="konsi.js"></script>
+
+</body>
+</html>
